@@ -22,8 +22,8 @@ public class MessageHandleAnnotationTest {
 
     @Ignore(value = "Временно отключено")
     @Test
-    public void testReceiveMessage() {
-        int uid = 123;
+    public void testReceiveMessage() throws Exception {
+        long uid = 123;
         String message = "test message";
         String exceptedMessage = uid + "@" + message;
         context.handleMessage(uid, message);

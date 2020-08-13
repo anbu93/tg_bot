@@ -17,4 +17,12 @@ public class TgContextMessageHandler {
     public void handle(long uid, String message) throws Exception {
         method.invoke(object, uid, message);
     }
+
+    protected Object getObject() {
+        return object;
+    }
+
+    protected Method getMethod() {
+        return method;
+    }
 }

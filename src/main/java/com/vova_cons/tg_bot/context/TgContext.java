@@ -16,8 +16,13 @@ public class TgContext {
         return id;
     }
 
-    public void handleMessage(int uid, String message) {
-        // TODO: 13.08.20 implement
+    public void handleMessage(long uid, String message) throws Exception {
+        if (commandHandlers.containsKey(message)) {
+            TgContextCommandHandler commandHandler = commandHandlers.get(message);
+            commandHandler.handle(uid);
+        } else {
+            messageHandler.handle(uid, message);
+        }
     }
     //endregion
 

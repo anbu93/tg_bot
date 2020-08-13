@@ -17,4 +17,12 @@ public class TgContextCommandHandler {
     public void handle(long uid) throws Exception {
         method.invoke(object, uid);
     }
+
+    protected Object getObject() {
+        return object;
+    }
+
+    protected Method getMethod() {
+        return method;
+    }
 }
