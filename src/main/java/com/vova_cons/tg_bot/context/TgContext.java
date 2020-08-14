@@ -1,5 +1,8 @@
 package com.vova_cons.tg_bot.context;
 
+import com.vova_cons.tg_bot.TgBot;
+
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,8 +13,13 @@ public class TgContext {
     private int id;
     private Map<String, TgContextCommandHandler> commandHandlers = new HashMap<>();
     private TgContextMessageHandler messageHandler;
+    protected TgBot bot;
 
     //region interface
+    public void setBot(TgBot bot) {
+        this.bot = bot;
+    }
+
     public int getId() {
         return id;
     }
@@ -20,9 +28,13 @@ public class TgContext {
         if (commandHandlers.containsKey(message)) {
             TgContextCommandHandler commandHandler = commandHandlers.get(message);
             commandHandler.handle(uid);
-        } else {
+        } else if (messageHandler != null) {
             messageHandler.handle(uid, message);
         }
+    }
+
+    public Collection<String> getComamnds() {
+        return commandHandlers.keySet();
     }
     //endregion
 

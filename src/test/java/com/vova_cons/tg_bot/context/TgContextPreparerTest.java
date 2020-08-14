@@ -8,8 +8,6 @@ import org.junit.Test;
 
 import java.lang.reflect.Method;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by anbu on 13.08.20.
  **/
@@ -53,7 +51,7 @@ public class TgContextPreparerTest {
 
     @TgBotContext(id = 0)
     public static class ContextWithOneCommand extends TgContext {
-        @TgBotCommandHandler(name = "/start")
+        @TgBotCommandHandler(command = "/start")
         public void handleCommand(long uid) {}
     }
 
@@ -69,7 +67,7 @@ public class TgContextPreparerTest {
 
     @TgBotContext(id = 0)
     public static class ContextWithPrivateCommand extends TgContext {
-        @TgBotCommandHandler(name = "/start")
+        @TgBotCommandHandler(command = "/start")
         private void handleCommand(long uid) {}
     }
 
@@ -145,7 +143,7 @@ public class TgContextPreparerTest {
 
     @TgBotContext(id = 0)
     public static class ContextWithInvalidCommandHandlerEmptyArgs extends TgContext {
-        @TgBotCommandHandler(name = "/start")
+        @TgBotCommandHandler(command = "/start")
         private void onReceiveMessage() {}
     }
 
@@ -165,7 +163,7 @@ public class TgContextPreparerTest {
 
     @TgBotContext(id = 0)
     public static class ContextWithInvalidCommandHandlerNotValidParams extends TgContext {
-        @TgBotCommandHandler(name = "/start")
+        @TgBotCommandHandler(command = "/start")
         private void onReceiveMessage(String uid) {}
     }
 }

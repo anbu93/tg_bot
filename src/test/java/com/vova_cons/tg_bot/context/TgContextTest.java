@@ -4,7 +4,6 @@ import com.vova_cons.tg_bot.annotations.TgBotCommandHandler;
 import com.vova_cons.tg_bot.annotations.TgBotContext;
 import com.vova_cons.tg_bot.annotations.TgBotMessageHandler;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -33,6 +32,7 @@ public class TgContextTest {
             actualMessage = uid + "@" + message;
         }
     }
+
     @Test
     public void testCommandHandler() throws Exception {
         CommandHandlerContext context = new CommandHandlerContext();
@@ -47,7 +47,7 @@ public class TgContextTest {
     public static class CommandHandlerContext extends TgContext {
         long uid;
 
-        @TgBotCommandHandler(name = "/start")
+        @TgBotCommandHandler(command = "/start")
         public void handleStartCommand(long uid) {
             this.uid = uid;
         }

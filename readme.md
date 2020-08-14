@@ -23,7 +23,7 @@ public class ContextType {
 }
 
 
-@TgBotContext(name = ContextType.START)
+@TgBotContext(id = ContextType.START)
 class StartContext extends TgContext {
     @TgBotCommandHandler(command = "/help")
     public void helpCommand(long user) {
@@ -43,7 +43,7 @@ class StartContext extends TgContext {
 }
 
 
-@TgBotContext(name = ContextType.MAIN)
+@TgBotContext(id = ContextType.MAIN)
 class MainContext extends TgContext {
     private Random random = new Random();
 	
@@ -97,7 +97,7 @@ class MainContext extends TgContext {
 }
 
 
-@TgBotContext(name = ContextType.CUSTOM)
+@TgBotContext(id = ContextType.CUSTOM)
 class CustomDicesContext extends TgContext {
     private Random random = new Random();
     

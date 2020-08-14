@@ -33,7 +33,7 @@ public class TgContextPreparer {
             if (method.isAnnotationPresent(TgBotCommandHandler.class)) {
                 TgBotCommandHandler commandHandlerAnnotiation = method.getAnnotation(TgBotCommandHandler.class);
                 Class<?>[] parameters = method.getParameterTypes();
-                String command = commandHandlerAnnotiation.name();
+                String command = commandHandlerAnnotiation.command();
                 if (parameters.length == 1 && parameters[0] == long.class) {
                     context.setCommandHandler(command, new TgContextCommandHandler(context, method));
                 } else {
